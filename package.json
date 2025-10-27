@@ -1,0 +1,66 @@
+{
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --port 3333 --open",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc",
+    "preview": "vite preview",
+    "test:run": "vitest run",
+    "test:watch": "vitest",
+    "up": "taze major -I",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "dependencies": {
+    "@fontsource/inter": "catalog:frontend",
+    "@primeuix/themes": "catalog:frontend",
+    "@primevue/auto-import-resolver": "catalog:dev",
+    "@tailwindcss/vite": "catalog:frontend",
+    "@vueuse/core": "catalog:frontend",
+    "date-fns": "catalog:frontend",
+    "dompurify": "catalog:frontend",
+    "eslint-plugin-tailwindcss": "catalog:dev",
+    "jsondiffpatch": "catalog:frontend",
+    "primeicons": "catalog:frontend",
+    "primevue": "catalog:frontend",
+    "tailwindcss": "catalog:frontend",
+    "tailwindcss-primeui": "catalog:frontend",
+    "uuid": "catalog:frontend",
+    "vue": "catalog:frontend",
+    "vue-router": "catalog:frontend",
+    "zod": "catalog:frontend"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "@vitejs/plugin-vue": "catalog:build",
+    "@vue-macros/volar": "catalog:dev",
+    "@vue/test-utils": "catalog:dev",
+    "eslint": "catalog:dev",
+    "eslint-plugin-format": "catalog:dev",
+    "jsdom": "catalog:build",
+    "lint-staged": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "taze": "catalog:dev",
+    "typescript": "catalog:dev",
+    "unplugin-auto-import": "catalog:build",
+    "unplugin-vue-components": "catalog:build",
+    "unplugin-vue-macros": "catalog:build",
+    "unplugin-vue-router": "catalog:build",
+    "vite": "catalog:build",
+    "vitest": "catalog:dev",
+    "vue-tsc": "catalog:dev"
+  },
+  "resolutions": {
+    "unplugin": "catalog:build",
+    "vite": "catalog:build"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
