@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.22.0",
   "scripts": {
     "build": "vite build",
     "dev": "vite --port 3333 --open",
@@ -21,7 +21,6 @@
     "@vueuse/core": "catalog:frontend",
     "date-fns": "catalog:frontend",
     "dompurify": "catalog:frontend",
-    "eslint-plugin-tailwindcss": "catalog:dev",
     "jsondiffpatch": "catalog:frontend",
     "primeicons": "catalog:frontend",
     "primevue": "catalog:frontend",
@@ -40,6 +39,7 @@
     "@vue/test-utils": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
+    "eslint-plugin-tailwindcss": "catalog:dev",
     "jsdom": "catalog:build",
     "lint-staged": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
