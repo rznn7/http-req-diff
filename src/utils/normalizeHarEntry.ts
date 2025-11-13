@@ -1,12 +1,4 @@
-import type { HarEntry, NameValuePair } from '~/models/har-schema'
-
-function sortNameValuePairs(pairs: NameValuePair[] | undefined): NameValuePair[] | undefined {
-  if (!pairs || pairs.length === 0) {
-    return pairs
-  }
-
-  return [...pairs].sort((a, b) => a.name.localeCompare(b.name))
-}
+import type { HarEntry, NameValuePair } from '~/models/harSchema'
 
 export function normalizeHarEntry(harEntry: HarEntry) {
   const normalizedRequest = {
@@ -18,6 +10,7 @@ export function normalizeHarEntry(harEntry: HarEntry) {
       ? {
           ...harEntry.request.postData,
           params: sortNameValuePairs(harEntry.request.postData.params),
+          text: tryTextToJson(harEntry.request.postData.text),
         }
       : harEntry.request.postData,
   }
@@ -26,6 +19,9 @@ export function normalizeHarEntry(harEntry: HarEntry) {
     ...harEntry.response,
     headers: sortNameValuePairs(harEntry.response.headers),
     cookies: sortNameValuePairs(harEntry.response.cookies),
+    content: {
+      text: tryTextToJson(harEntry.response.content?.text),
+    },
   }
 
   const normalizedEntry = {
@@ -64,4 +60,25 @@ export function normalizeHarEntry(harEntry: HarEntry) {
   }
 
   return normalizedEntry
+}
+
+function sortNameValuePairs(pairs: NameValuePair[] | undefined): NameValuePair[] | undefined {
+  if (!pairs || pairs.length === 0) {
+    return pairs
+  }
+
+  return [...pairs].sort((a, b) => a.name.localeCompare(b.name))
+}
+
+function tryTextToJson(text?: string) {
+  if (!text)
+    return text
+
+  try {
+    const parsedJson: unknown = JSON.parse(text)
+    return parsedJson
+  }
+  catch {
+    return text
+  }
 }

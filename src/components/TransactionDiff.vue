@@ -33,7 +33,7 @@ const formattedDiff = computed(() => {
   <Card class="border-1 border-surface rounded-md! overflow-hidden">
     <template #content>
       <div
-        class="flex-1 max-h-[80vh] overflow-auto border-1 border-surface-600 rounded-md  bg-surface-100 dark:bg-surface-950"
+        class="flex-1 max-h-[80vh] overflow-auto border-1 border-surface-600 rounded-md  bg-surface-50 dark:bg-surface-950"
       >
         <div class="p-4 font-mono text-color">
           <div v-html="formattedDiff" />

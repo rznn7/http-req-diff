@@ -1,4 +1,4 @@
-import type { HarEntry } from './har-schema'
+import type { HarEntry } from './harSchema'
 
 export interface HttpTransaction {
   id: string

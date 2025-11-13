@@ -1,4 +1,4 @@
-import type { HarFile } from '~/models/har-schema'
+import type { HarFile } from '~/models/harSchema'
 import type { HttpTransaction } from '~/models/httpTransaction'
 import { v4 as uuidv4 } from 'uuid'
 

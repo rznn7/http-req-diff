@@ -1,5 +1,6 @@
+import type { HarFile } from '~/models/harSchema'
 import type { Result } from '~/models/utils'
-import { type HarFile, harSchema } from '~/models/har-schema'
+import { harSchema } from '~/models/harSchema'
 
 export async function loadHarFromFile(file: File): Promise<Result<HarFile>> {
   try {
